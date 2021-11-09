@@ -1,0 +1,196 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "SmartBed",
+    "description": "OpenAPI Specification.",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "contact": {
+      "name": "Rares Cristea",
+      "url": "http://www.github.com/raresito",
+      "email": "cristea.rares96@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:5000/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "auth"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "Endpoint for registering new user",
+        "operationId": "register",
+        "description": "Register new users",
+        "tags": [
+            "auth"
+        ],
+        "requestBody":{
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json":{
+              "schema":{
+                "$ref": "#/components/schemas/RegistrationRequestData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200":{
+            "$ref": "#/components/responses/SuccessfullRegister"
+          },
+          "403": {
+            "$ref": "#/components/responses/FailedRegistration"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Endpoint for login existing user",
+        "operationId": "login",
+        "description": "Login existing users",
+        "tags": [
+          "auth"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/SuccessfullLogin"
+          },
+          "403": {
+            "$ref": "#/components/responses/FailedLogin"
+          }
+        }
+      }
+    },
+
+    "/headrest":{
+      "get":{
+        "summary": "Get the angle at which the headrest is set",
+        "operationId": "set_headrest",
+        "description": "Get the current angle at which the headrest is set",
+        "tags":[
+          "functions"
+        ],
+        "responses":{
+          "200": {
+            "description": "Succesfully retrieved headrest angle",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HeadrestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "StatusResponse":{
+        "type": "object",
+        "properties":{
+          "status":{
+            "type": "string"
+          }
+        }
+      },
+      "RegistrationRequestData":{
+        "type": "object",
+        "properties":{
+          "username": {
+            "type": "string"
+          },
+          "password":{
+            "type":"string"
+          }
+        }
+      },
+      "HeadrestResponse":{
+        "type": "object",
+        "properties":{
+          "status": {
+            "type": "string"
+          },
+          "data":{
+            "type":"object",
+            "properties":{
+              "id":{
+                "type":"integer"
+              },
+              "timestamp":{
+                "type":"string"
+              },
+              "value":{
+                "type":"string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "SuccessfullRegister": {
+        "description":"New user has successfully registered",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/StatusResponse"
+            }
+          }
+        }
+      },
+      "FailedRegistration": {
+        "description":"Authentication failed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/StatusResponse"
+            }
+          }
+        }
+      },
+      "SuccessfullLogin": {
+        "description":"New user has successfully logged in",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/StatusResponse"
+            }
+          }
+        }
+      },
+      "FailedLogin": {
+        "description":"Login failed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/StatusResponse"
+            }
+          }
+        }
+      },
+      "SuccesfullHeadrestRetrieval":{
+        "description":"Successfully retrieved the angle of the headrest",
+        "content":{
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HeadrestResponse"
+            }
+          }
+        }
+      }
+    }
+  }
+}

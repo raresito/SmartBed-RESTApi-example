@@ -16,9 +16,9 @@ def register():
     db = get_db()
 
     if not username:
-        return jsonify({'status': 'Username is required.'})
+        return jsonify({'status': 'Username is required.'}), 403
     elif not password:
-        return jsonify({'status': 'Password is required.'})
+        return jsonify({'status': 'Password is required.'}), 403
 
     try:
         db.execute(
@@ -48,19 +48,20 @@ def login():
 
     session.clear()
     session['user_id'] = user['id']
-    return jsonify({'status': 'user logged in succesfully'})
+    return jsonify({'status': 'user logged in succesfully'}), 200
 
 
 @bp.route('/logout')
 def logout():
     session.clear()
+    return jsonify({'status': 'user logged out succesfully'}), 200
 
 
 def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
         if g.user is None:
-            return jsonify({'status': 'User is not authenticated'})
+            return jsonify({'status': 'User is not authenticated'}), 403
 
         return view(**kwargs)
 
