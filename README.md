@@ -8,6 +8,9 @@ Implemented endpoints:
 * Detection of the bed sheet
 * Retrieval of envrionment temperature
 
+### Credits
+This tutorial is based on the official Flask tutorial: https://flask.palletsprojects.com/en/2.0.x/tutorial/
+
 ### OpenAPI specification
 
 You can check out tools that automate the generation of the specification like:
