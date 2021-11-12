@@ -26,7 +26,9 @@ You should have python3 installed and pip3.
 `pip install virtualenv`
   
 3. Create an environment:  
-`python3 -m venv ./`  
+`python3 -m venv ./`
+  
+Windows: `python -m venv venv`  
 
 4. Activate environment  
 
