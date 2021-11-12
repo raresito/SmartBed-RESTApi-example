@@ -16,4 +16,23 @@ This tutorial is based on the official Flask tutorial: https://flask.palletsproj
 You can check out tools that automate the generation of the specification like:
 https://openap.is
 
+### Instalation
 
+You should have python3 installed and pip3. 
+
+1. cd into this project  
+  
+2. Create an environment:  
+`python3 -m venv ./`  
+
+3. Activate environment
+`source venv/bin/activate`
+
+4. Install flask
+`pip install flask`
+
+5. Set environment value for development:
+`export FLASK_ENV=development`
+
+6. Run
+`flask run`
