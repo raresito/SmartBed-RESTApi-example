@@ -37,3 +37,6 @@ def set_headrest():
             'value': check['value']
         }
     }), 200
+
+# TODO:
+# Create endpoint that allows to get and change model of headrests (models: cushioned, leather, plastic)
