@@ -40,7 +40,15 @@ Windows:
 `pip install flask`
 
 6. Set environment value for development:  
+
+Bash: 
 `export FLASK_ENV=development`
+
+CMD:
+`set FLASK_ENV=development`
+
+PowerShell:
+`$env:FLASK_ENV = "development"`
 
 7. Initialize (or reinitialize) database:  
 `flask init-db`
