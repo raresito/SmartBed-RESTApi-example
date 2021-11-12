@@ -36,7 +36,7 @@ macOS/Linux:
 `source venv/bin/activate`  
 
 Windows:  
-`venv/bin/activate.bat`
+`.venv\Scripts\activate.bat`
 
 5. Install flask  
 `pip install flask`
