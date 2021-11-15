@@ -21,14 +21,24 @@ https://openap.is
 You should have python3 installed and pip3. 
 
 1. cd into this project  
+
+2. Install venv if not already installed:  
+`pip install virtualenv`
   
-2. Create an environment:  
-`python3 -m venv ./`  
+3. Create an environment:  
+`python3 -m venv ./`
+  
+Windows: `python -m venv venv`  
 
-3. Activate environment
-`source venv/bin/activate`
+4. Activate environment  
 
-4. Install flask
+macOS/Linux:  
+`source venv/bin/activate`  
+
+Windows:  
+`.venv\Scripts\activate.bat`
+
+5. Install flask  
 `pip install flask`
 
 5. Install libraries neccessary for MQTT
@@ -37,7 +47,16 @@ You should have python3 installed and pip3.
 5. Set environment value for development:
 `export FLASK_ENV=development`
 
-6. Run
+CMD:
+`set FLASK_ENV=development`
+
+PowerShell:
+`$env:FLASK_ENV = "development"`
+
+7. Initialize (or reinitialize) database:  
+`flask init-db`
+
+7. Run  
 `flask run`
 
 ### Mosquitto instalation
