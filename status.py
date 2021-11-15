@@ -1,14 +1,5 @@
-from flask import (
-    Blueprint, jsonify
-)
-
-from auth import login_required
 from db import get_db
 
-bp = Blueprint('status', __name__, url_prefix='/status')
-
-@bp.route('/')
-@login_required
 def get_status():
     headrest = get_db().execute(
         'SELECT id, timestamp, value'
@@ -23,12 +14,12 @@ def get_status():
     ).fetchone()
 
     if headrest is None:
-        return jsonify({'status': 'Please set a value for headrest'}), 404
+        return {'status': 'Please set a value for headrest'}
 
     if sheet is None:
-        return jsonify({'status': 'Please mount a sheet'}), 404
+        return {'status': 'Please mount a sheet'}
 
-    return jsonify({
+    return {
         'data': {
             'headrest': headrest['value'],
             'sheet': {
@@ -36,4 +27,4 @@ def get_status():
                 'color': sheet['color']
             }
         }
-    }), 200
+    }

@@ -31,8 +31,21 @@ You should have python3 installed and pip3.
 4. Install flask
 `pip install flask`
 
+5. Install libraries neccessary for MQTT
+`pip install flask_mqtt flask_socketio eventlet`
+
 5. Set environment value for development:
 `export FLASK_ENV=development`
 
 6. Run
 `flask run`
+
+### Mosquitto instalation
+
+Install and run [mosquitto](https://mosquitto.org/download/).
+For this app, we will use the default configurations of mosquitto.
+
+#### Mac
+
+1. `brew install mosquitto`
+2. If restarting the service is needed: `brew services restart mosquitto`
