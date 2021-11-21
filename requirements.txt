@@ -1,0 +1,5 @@
+eventlet=0.32.0
+Flask=2.0.2
+Flask-MQTT=1.1.1
+Flask-SocketIO=5.1.1
+pytest=6.2.5

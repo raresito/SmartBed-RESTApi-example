@@ -38,13 +38,10 @@ macOS/Linux:
 Windows:  
 `.venv\Scripts\activate.bat`
 
-5. Install flask  
-`pip install flask`
+5. Install libraries
+`pip install -r requirements.txt`
 
-5. Install libraries neccessary for MQTT
-`pip install flask_mqtt flask_socketio eventlet`
-
-5. Set environment value for development:
+6. Set environment value for development:
 `export FLASK_ENV=development`
 
 CMD:
@@ -56,7 +53,7 @@ PowerShell:
 7. Initialize (or reinitialize) database:  
 `flask init-db`
 
-7. Run  
+8. Run  
 `flask run`
 
 ### Mosquitto instalation
@@ -68,3 +65,7 @@ For this app, we will use the default configurations of mosquitto.
 
 1. `brew install mosquitto`
 2. If restarting the service is needed: `brew services restart mosquitto`
+
+### Testing
+
+Using testing tutorial: https://codethechange.stanford.edu/guides/guide_flask_unit_testing.html
