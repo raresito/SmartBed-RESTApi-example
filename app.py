@@ -70,20 +70,6 @@ def create_mqtt_app():
 
     return mqtt
 
-def get_socketio_app():
-    if socketio is None:
-        create_app()
-        create_mqtt_app()
-    return socketio
-
-def get_flask_app():
-    if app is None:
-        print("App was None")
-        create_app()
-        print("App is now not None")
-    print("App is called")
-    return app
-
 # Start MQTT publishing
 
 # Function that every second publishes a message
