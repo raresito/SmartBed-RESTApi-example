@@ -11,7 +11,7 @@ variables:
   azureServiceConnectionId: '705e6181-9df9-426c-b80b-38a7895436ad'
 
   # Web app name
-  webAppName: ''
+  webAppName: 'smart-bed-rest'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
